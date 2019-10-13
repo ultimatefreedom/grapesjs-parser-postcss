@@ -5,9 +5,10 @@ import postcss from 'postcss';
  * @param  {Editor} editor
  * @param  {*} msg
  */
-export const log = (editor, msg) =>
+export const log = (editor, msg) => {
+console.log('postcss', msg);
   editor && editor.log(msg, { ns: 'parser-poscss' });
-
+}
 /**
  * Create rule from node
  * @param  {Object} node
@@ -54,10 +55,18 @@ export const createAtRule = (node, result) => {
 };
 
 export default (css, editor) => {
+  debugger;
   const result = [];
   log(editor, ['Input CSS', css]);
+  var ast = null;
 
-  const ast = postcss.parse(css);
+  try {
+    console.log("parsing", css);
+    ast = postcss.parse(css);
+  } catch (ex) {
+    console.log("postcss parse error");
+    console.log(ex);
+  }
   log(editor, ['PostCSS AST', ast]);
 
   ast.nodes.forEach(node => {

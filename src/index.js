@@ -5,5 +5,7 @@ export default (editor, opts = {}) => {
     // default options
   },  ...opts };
 
+  console.log("initialize parser", opts);
+
   editor.setCustomParserCss(parser);
 };

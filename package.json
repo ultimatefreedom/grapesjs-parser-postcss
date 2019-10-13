@@ -1,13 +1,13 @@
 {
   "name": "grapesjs-parser-postcss",
-  "version": "0.1.1",
+  "version": "0.1.7",
   "description": "Custom CSS parser via PostCSS for GrapesJS",
   "main": "dist/grapesjs-parser-postcss.min.js",
   "scripts": {
     "lint": "eslint src",
     "test": "jest",
     "v:patch": "npm version --no-git-tag-version patch",
-    "build": "npm test && npm run v:patch && webpack --env.production",
+    "build": "npm test && npm run v:patch && webpack --env.development",
     "start": "webpack-dev-server --open --progress --colors"
   },
   "repository": {
