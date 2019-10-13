@@ -66,6 +66,7 @@ export default (css, editor) => {
   } catch (ex) {
     console.log("postcss parse error");
     console.log(ex);
+    ast = postcss.parse("");
   }
   log(editor, ['PostCSS AST', ast]);
 
